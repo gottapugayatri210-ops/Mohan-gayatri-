@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading Time Example</title>
+</head>
+<body>
+
+    <!-- Your Article Content -->
+    <article id="article-content">
+        <h1>Understanding Reading Time</h1>
+        <p>Adding an estimated reading time to your website helps visitors decide if they want to read your content immediately or save it for later. It is a great way to improve user experience.</p>
+        <p>This paragraph contains a few more words to push the estimated duration. The script will automatically count the text in this article container.</p>
+    </article>
+
+    <!-- Container to display result -->
+    <p>Estimated reading time: <span id="reading-time"></span> min read</p>
+
+    <!-- JavaScript to Calculate Time -->
+    <script>
+        function calculateReadingTime() {
+            // 1. Get the text from the article
+            const text = document.getElementById("article-content").innerText;
+            
+            // 2. Define average reading speed (words per minute)
+            const wpm = 225; 
+            
+            // 3. Split the text into an array of words and count them
+            const words = text.trim().split(/\s+/).length;
+            
+            // 4. Calculate the minutes and round up
+            const time = Math.ceil(words / wpm);
+            
+            // 5. Display the result
+            document.getElementById("reading-time").innerText = time;
+        }
+
+        // Run the function when the page loads
+        window.onload = calculateReadingTime;
+    </script>
+
+</body>
+</html>
